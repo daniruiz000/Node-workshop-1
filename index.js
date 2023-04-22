@@ -3,7 +3,7 @@ const express = require("express");
 const fs = require("fs");
 
 // Parametros del servidor, router y los datos de origen
-const PORT = 3001;
+const PORT = 3000;
 const server = express();
 const router = express.Router();
 const dataFilePath = "./data";
