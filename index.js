@@ -117,7 +117,7 @@ router.get("/winners-multiple/:year", (req, res) => {
   console.log(filePath);
   fs.readFile(filePath, (error, data) => {
     if (error) {
-      console.log("Error");
+      res.status(500).send("Error de escritura");
     } else {
       const dataParsed = JSON.parse(data);
       dataParsed.forEach((winner) => {
@@ -129,7 +129,7 @@ router.get("/winners-multiple/:year", (req, res) => {
             return multipleWinner.name === winner.entity;
           });
           const onlyAward = awards.map((item) => item.category);
-          console.log(onlyAward);
+
           if (!existingWinner) {
             multipleWinners.push({
               name: winner.entity,
